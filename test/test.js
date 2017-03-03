@@ -2,19 +2,19 @@
 import chai from 'chai';
 
 // Import Any Files to Test
-
+import Player from '../src/js/player';
 // Set Chai Constants
 const expect = chai.expect;
 const should = chai.should();
 const assert = chai.assert;
 
-describe('Something We Want To Test', function () {
+describe('the game', function () {
 
-  describe('Testing the Creation of Something', function () {
+  describe('player constructor', function () {
 
     it('should exist after we create it', function () {
-      let x = new Object;
-      expect(x).to.be.an.instanceof(Object);
+      let player = new Player;
+      expect(player).to.be.an.instanceof(Player);
     });
 
   });
