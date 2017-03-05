@@ -4,6 +4,7 @@ class AppController {
   constructor (options) {
     this.player = options.player;
     this.computer = options.computer;
+    this.barrel = options.barrel;
 
   }
 
@@ -15,9 +16,10 @@ class AppController {
 
 
 
+
     //ability to move player
     setInterval(this.player.movePlayer(), 200);
-    this.computer.moveComputer();
+    this.computer.moveComputer(this.barrel);
 
 
 

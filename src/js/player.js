@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
 class Mario {
-  constructor (option) {
-    option = option || {};
-    this.lives = option.lives;
-    this.name = option.name;
+  constructor (options) {
+    options = options || {};
+    this.lives = options.lives;
+    this.name = options.name;
     //this.gameWindow = $('.game-container');
     //this.playerSprite = $('#player');
 

@@ -5,11 +5,12 @@ class Donkeykong {
 
   }
 
-  moveComputer() {
+  moveComputer(barrel) {
     setInterval(() => {
       if (this.randomMove(0,2) === 0) { $('#donkeykong').css( 'left', '-=20');}
       if (this.randomMove(0,2) === 1) { $('#donkeykong').css( 'left', '+=20');}
-    }, 200);
+      barrel.template();
+    }, 800);
   }
 
   template () {
