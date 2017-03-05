@@ -27,21 +27,29 @@
 }
 
 .player-run {
-  background: url('../images/high_quality_paper_mario_sprites_by_fawfulthegreat64-d860r1v.png') no-repeat -603px -25px;
-	width: 584px;
-	height: 792px;
-  zoom:.09;
+  background: url('../images/donkeyKong game sprite.gif') no-repeat -176px -4px;
+	width: 15px;
+	height: 15px;
   position: absolute;
-  top: 6860px;
-  left: 3000px;
+  top: 262px;
+  left: 110px;
+  zoom: 2.5;
 }
 
 .player-stand {
-  background: url('../images/high_quality_paper_mario_sprites_by_fawfulthegreat64-d860r1v.png') no-repeat 0 -24px;
-	width: 508px;
-	height: 877px;
-  zoom:.09;
+  background: url('../images/donkeyKong game sprite.gif') no-repeat -158px -3px;
+	width: 12px;
+	height: 16px;
   position: absolute;
-  top: 6860px;
-  left: 3000px;
+  top: 262px;
+  left: 110px;
+  zoom: 2.5;
+}
+
+#donkeykong {
+  background: url('../images/donkeyKong game sprite.gif') no-repeat -108px -152px;
+	width: 40px;
+	height: 32px;
+  position: absolute;
+  zoom:2;
 }

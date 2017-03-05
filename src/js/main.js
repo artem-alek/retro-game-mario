@@ -1,13 +1,13 @@
 import $ from 'jquery';
-import Player from './player';
+import Mario from './player';
+import Donkeykong from './donkeykong';
 import AppController from './gamewindow';
 
-var mario = new Player({lives:3, name:'mario'});
-var marioGame = new AppController(mario);
+var player = new Mario({lives:3, name:'mario'});
+var computer = new Donkeykong();
 
+var marioGame = new AppController({player:player, computer:computer});
+console.log(marioGame)
+//$('#game').append('<div id="donkeykong"></div>');
 
-console.log(mario)
-console.log(marioGame);
-//$('.start-game').click(marioGame.start);
-
-marioGame.start();
+$('.start-game').click(marioGame.start.bind(marioGame));
