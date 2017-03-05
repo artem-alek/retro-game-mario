@@ -1,6 +1,12 @@
+
+
 class Barrel {
   constructor () {
 
+  }
+
+  template () {
+    
   }
 }
 
