@@ -5,8 +5,8 @@ class Player {
     option = option || {};
     this.lives = option.lives;
     this.name = option.name;
-    this.gameWindow = $('.game-container');
-    this.playerSprite = $('#player');
+    //this.gameWindow = $('.game-container');
+    //this.playerSprite = $('#player');
 
   }
 
