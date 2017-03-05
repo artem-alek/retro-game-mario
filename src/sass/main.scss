@@ -1,3 +1,47 @@
 * {
   box-sizing: border-box;
 }
+
+#player {
+
+}
+
+#game {
+  width: 600px;
+  height: 700px;
+  border: 1px solid lightgrey;
+  margin: 0px auto;
+  position: relative;
+}
+
+// .game-container {
+//   width: 600px;
+//   height: 700px;
+//   border: 1px solid lightgrey;
+//   margin: 0px auto;
+//   position: relative;
+// }
+
+.face-right {
+  transform: scaleX(-1);
+}
+
+.player-run {
+  background: url('../images/high_quality_paper_mario_sprites_by_fawfulthegreat64-d860r1v.png') no-repeat -603px -25px;
+	width: 584px;
+	height: 792px;
+  zoom:.09;
+  position: absolute;
+  top: 6860px;
+  left: 3000px;
+}
+
+.player-stand {
+  background: url('../images/high_quality_paper_mario_sprites_by_fawfulthegreat64-d860r1v.png') no-repeat 0 -24px;
+	width: 508px;
+	height: 877px;
+  zoom:.09;
+  position: absolute;
+  top: 6860px;
+  left: 3000px;
+}
