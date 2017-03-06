@@ -3,7 +3,8 @@ class Barrel {
   constructor (options) {
     options = options || {};
     this.id = options.id;
-    this.left = options.left + 90;
+    this.left = options.left + 12;
+    //this.left = options.left;
     this.top = options.top;
   }
 
@@ -23,12 +24,18 @@ class Barrel {
     	'width': 15 + 'px',
     	'height': 10 + 'px',
       'position': 'absolute',
-      'zoom':2.5,
+      //'zoom':2,
       'left': (this.left) + 'px',
       'top': '15px'
     });
   }
 
+  // fallBarrel () {
+  //   // setInterval(() => {
+  //   //   $(`${this.id}`)
+  //
+  //   },200);
+  // }
 
 
 }
