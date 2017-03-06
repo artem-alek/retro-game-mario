@@ -19,8 +19,8 @@ class Donkeykong {
       if (randomNum === 1) {
         newLeft -= 40;
         $('#donkeykong').css({ 'left': newLeft + 'px' });}
-      console.log($('#donkeykong').position());
-    }, 4000);
+      // console.log($('#donkeykong').position());
+    }, 200);
 
     setInterval(() => {
       this.position = $('#donkeykong').position();
@@ -30,14 +30,17 @@ class Donkeykong {
       var barrel = new Barrel({
         id:id,
         left:left,
-        top:top
+        top:top,
       });
 
       console.log(barrel, 'new barrel');
       barrel.template();
       barrel.placeBarrel();
+      barrel.fallBarrel();
       id += 1;
     },4000);
+
+
   }
 
   template () {

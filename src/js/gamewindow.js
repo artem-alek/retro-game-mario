@@ -19,6 +19,7 @@ class AppController {
 
     //ability to move player
     setInterval(this.player.movePlayer(), 200);
+
     this.computer.moveComputer(this.barrel);
 
 
