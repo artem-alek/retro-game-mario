@@ -7,9 +7,7 @@ import AppController from './gamewindow';
 var player = new Mario({lives:3, name:'mario'});
 var computer = new Donkeykong();
 
-
 var marioGame = new AppController({player:player, computer:computer });
-console.log(marioGame)
-//$('#game').append('<div id="donkeykong"></div>');
+//console.log(marioGame);
 
 $('.start-game').click(marioGame.start.bind(marioGame));
