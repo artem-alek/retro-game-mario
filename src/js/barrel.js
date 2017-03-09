@@ -30,7 +30,7 @@ class Barrel {
   }
 
   fallBarrel () {
-    console.log(this.id);
+    
     setInterval(() => {
       $(`#${this.id}`).css('top', '+=10');
     },200);

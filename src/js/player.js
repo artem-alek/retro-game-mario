@@ -5,16 +5,25 @@ class Mario {
     options = options || {};
     this.lives = options.lives;
     this.name = options.name;
-    // this.left = 0;
+    this.id = '#player';
+    this.left = 110;
+    this.top = 262;
   }
 
   // Player has an id on the page (in the DOM) "player"
   // Player has an action state which is a class "player-stand"
 
+  render () {
+    $(this.id).css('left', this.x + 'px');
+  }
+
   // moveLeft () {
   //   this.left -= 5;
   //   this.state = 'left-walk';
   // }
+
+  // mario.moveLeft();
+  // mario.render();
   //
   // moveRight () {
   //   this.left += 5;
