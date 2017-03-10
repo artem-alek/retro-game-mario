@@ -22,8 +22,13 @@
 //   position: relative;
 // }
 
-.face-right {
+.player-left {
   transform: scaleX(-1);
+  background: url('../images/donkeyKong game sprite.gif') no-repeat -158px -3px;
+	width: 12px;
+	height: 16px;
+  position: absolute;
+  top: 262px;
 }
 
 .player-run {
@@ -36,7 +41,7 @@
   //zoom: 2;
 }
 
-.player-stand {
+.player-right {
   background: url('../images/donkeyKong game sprite.gif') no-repeat -158px -3px;
 	width: 12px;
 	height: 16px;
