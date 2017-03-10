@@ -32,10 +32,10 @@ class AppController {
     //var barrelHtml = this.renderBarrels();
     $('#game').html(`
       <div id="${this.player.id}" class="player-${this.player.state}"></div>
-
+      <div id="${this.computer.id}"></div>
       `);
     $(`.player-${this.player.state}`).css('left', this.player.left +'px');
-    //$('#donkeykong').css('left', this.computer.left);
+    $('#donkeykong').css('left', this.computer.left);
 // loop barrels to update css for each one.
     // this.barrels.forEach(function (barrel) {
     //   $(`#${barrel.id}`).css('top', barrel.top);
@@ -51,8 +51,7 @@ class AppController {
     // this.barrels.forEach(function (barrel) {
     //   barrel.update();
     // });
-    //this.computer.update();
-    //this.player.render();
+    this.computer.update();
     this.render();
   }
 
