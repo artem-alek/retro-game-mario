@@ -18,3 +18,5 @@ var marioGame = new AppController({player:player, computer:computer });
 //console.log(marioGame);
 
 $('.start-game').click(marioGame.start.bind(marioGame));
+
+export default marioGame;

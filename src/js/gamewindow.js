@@ -8,9 +8,11 @@ class AppController {
     this.barrels = [];
     this.barrelId = 1;
     this.turnCount = 0;
-    //this.barrel = options.barrel;
 
   }
+
+  // checkCollisions()
+  // collide(character1, character2) i.e. a player and a barrel
 
  // OBJECTIVE: Move event handling and intervals
  // into appcontroller to simplify models and make them easier to test
@@ -29,56 +31,55 @@ class AppController {
  */
 
   render () {
-    //var barrelHtml = this.renderBarrels();
+    var barrelHtml = this.renderBarrels();
+    //console.log(barrelHtml, 'HTML');
     $('#game').html(`
       <div id="${this.player.id}" class="player-${this.player.state}"></div>
       <div id="${this.computer.id}"></div>
+      ${barrelHtml}
       `);
     $(`.player-${this.player.state}`).css('left', this.player.left +'px');
     $('#donkeykong').css('left', this.computer.left);
 // loop barrels to update css for each one.
-    // this.barrels.forEach(function (barrel) {
-    //   $(`#${barrel.id}`).css('top', barrel.top);
-    // });
+    this.barrels.forEach((barrel) => barrel.render());
+  }
+
+  addBarrel () {
+    var barrel = new Barrel({id:this.barrelId, left:this.computer.left});
+    this.barrels.push(barrel);
+    this.barrelId++;
+  }
+
+  renderBarrels() {
+    //console.log(this.barrels)
+    //console.log(this.barrels.map((barrel) => `<div id="${barrel.id}" class="barrel"></div>`).join(''));
+    return this.barrels.map((barrel) => `<div id="${barrel.id}" class="barrel"></div>`).join('');
+    //console.log(typeof html, 'from render')
+    //return html;
   }
 
   tick () {
-    // if (this.turnCount % 20 === 0) {
-    //   var barrel = new Barrel(this.barrelId, this.computer);
-    //   this.barrels.push(barrel);
-    //   this.barrelId++;
-    // }
-    // this.barrels.forEach(function (barrel) {
-    //   barrel.update();
-    // });
+    if (this.turnCount % 200 === 0) {
+      this.addBarrel();
+    }
+    this.barrels.forEach((barrel) => {
+      barrel.update();
+    });
     this.computer.update();
     this.render();
+    this.turnCount++;
   }
 
 
   start () {
     setInterval(this.tick.bind(this), 16);
-    $('body').keyup((event) => {
+    $('body').keydown((event) => {
       switch (event.which) {
       case 37: this.player.moveLeft(); break;
       case 39: this.player.moveRight(); break;
       }
     });
   }
-
-
-//   start() {
-//     //console.log(this.player);
-//     //load all models
-//     this.computer.template();
-//     this.player.template();
-//
-//     //ability to move player
-//     setInterval(this.player.movePlayer(), 200);
-//
-//     this.computer.moveComputer();
-//   }
-// }
 }
 
 export default AppController;
