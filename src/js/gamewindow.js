@@ -32,7 +32,6 @@ class AppController {
 
   render () {
     var barrelHtml = this.renderBarrels();
-    //console.log(barrelHtml, 'HTML');
     $('#game').html(`
       <div id="${this.player.id}" class="player-${this.player.state}"></div>
       <div id="${this.computer.id}"></div>
@@ -50,21 +49,30 @@ class AppController {
     this.barrelId++;
   }
 
+  removeBarrel (barrel) {
+    if (barrel.top >= 690) {
+      this.barrels.splice(0,1);
+    }
+
+  }
+
   renderBarrels() {
-    //console.log(this.barrels)
-    //console.log(this.barrels.map((barrel) => `<div id="${barrel.id}" class="barrel"></div>`).join(''));
     return this.barrels.map((barrel) => `<div id="${barrel.id}" class="barrel"></div>`).join('');
-    //console.log(typeof html, 'from render')
-    //return html;
   }
 
   tick () {
-    if (this.turnCount % 200 === 0) {
+    if (this.turnCount % 100 === 0) {
       this.addBarrel();
     }
+
     this.barrels.forEach((barrel) => {
       barrel.update();
     });
+
+    this.barrels.forEach((barrel) => {
+      this.removeBarrel(barrel);
+    });
+
     this.computer.update();
     this.render();
     this.turnCount++;

@@ -11,11 +11,15 @@ class Donkeykong {
 
 
   moveLeft () {
-    this.left -= 40;
+    if (this.left > 0) {
+      this.left -= 40;
+    }
   }
 
   moveRight () {
-    this.left += 40;
+    if (this.left < 558) {
+      this.left += 40;
+    }
   }
 
   update () {

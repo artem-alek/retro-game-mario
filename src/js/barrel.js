@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import marioGame from './main';
 
 class Barrel {
   constructor (options) {
@@ -11,9 +10,13 @@ class Barrel {
   }
 
   update () {
-    if (this.turnCount % 500 === 0) {
+    if (this.top <= 690) {
       this.top += 5;
     }
+  }
+
+  checkHit () {
+
   }
 
   render () {
