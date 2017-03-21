@@ -1,44 +1,33 @@
 import $ from 'jquery';
+import marioGame from './main';
+
+
 class Barrel {
   constructor (options) {
     options = options || {};
     this.id = options.id;
     this.left = options.left + 12;
-    this.top = options.top;
+    this.top = 15;
+    this.turnCount = 0;
   }
 
-  template () {
-    $('#game').append(`
-      <div id="${this.id}"
-        class="barrel"></div>
-      `);
-
-    //$(`#${this.id}`).css('top', '100');
+  update () {
+    if (this.top <= 345) {
+      this.top += 5;
+    }
   }
 
-  placeBarrel () {
-    // console.log(this.left, 'from inside place barrel');
-    $(`#${this.id}`).css({
-      'background': `url('../images/donkeyKong game sprite.gif') no-repeat -96px -259px`,
-      'width': 15 + 'px',
-      'height': 10 + 'px',
-      'position': 'absolute',
-      //'zoom':2,
-      'left': (this.left) + 'px',
-      'top': '15px'
-    });
+  checkHit (player) {
+    var vertDistance = Math.abs(player.top - this.top);
+    var horiDistance = Math.abs(player.left - this.left);
+    if (vertDistance < 10 && horiDistance < 18) {
+      // marioGame.barrels.splice(0,1);
+      marioGame.hit();
+    }
   }
 
-  fallBarrel () {
-    console.log(this.id);
-    setInterval(() => {
-      $(`#${this.id}`).css('top', '+=10');
-    },200);
-
-    setInterval(() => {
-
-    });
+  render () {
+    $(`#${this.id}`).css({'top':this.top,'left':this.left});
   }
-
 }
 export default Barrel;
