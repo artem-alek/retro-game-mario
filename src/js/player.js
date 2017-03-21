@@ -15,13 +15,17 @@ class Mario {
   // Player has an action state which is a class "player-stand"
 
   moveLeft () {
-    this.left -= 5;
-    this.state = 'left';
+    if (this.left > 0) {
+      this.left -= 5;
+      this.state = 'left';
+    }
   }
 
   moveRight () {
-    this.left += 5;
-    this.state = 'right';
+    if (this.left < 585) {
+      this.left += 5;
+      this.state = 'right';
+    }
   }
 
   // movePlayer () {
