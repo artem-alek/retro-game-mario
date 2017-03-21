@@ -50,10 +50,13 @@ class AppController {
   }
 
   removeBarrel (barrel) {
-    if (barrel.top >= 690) {
+    if (barrel.top >= 345) {
       this.barrels.splice(0,1);
     }
+  }
 
+  hit () {
+    this.barrels.splice(0,1);
   }
 
   renderBarrels() {
@@ -66,9 +69,9 @@ class AppController {
     }
 
     this.barrels.forEach((barrel) => {
+      barrel.checkHit(this.player);
       barrel.update();
     });
-
     this.barrels.forEach((barrel) => {
       this.removeBarrel(barrel);
     });

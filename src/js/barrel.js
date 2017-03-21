@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import marioGame from './main';
+
 
 class Barrel {
   constructor (options) {
@@ -10,13 +12,18 @@ class Barrel {
   }
 
   update () {
-    if (this.top <= 690) {
+    if (this.top <= 345) {
       this.top += 5;
     }
   }
 
-  checkHit () {
-
+  checkHit (player) {
+    var vertDistance = Math.abs(player.top - this.top);
+    var horiDistance = Math.abs(player.left - this.left);
+    if (vertDistance < 10 && horiDistance < 18) {
+      // marioGame.barrels.splice(0,1);
+      marioGame.hit();
+    }
   }
 
   render () {

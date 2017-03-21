@@ -7,7 +7,7 @@ class Mario {
     this.name = options.name;
     this.id = 'player';
     this.left = 110;
-    this.top = 262;
+    this.top = 332;
     this.state = options.state;
   }
 
@@ -22,7 +22,7 @@ class Mario {
   }
 
   moveRight () {
-    if (this.left < 585) {
+    if (this.left < 285) {
       this.left += 5;
       this.state = 'right';
     }
