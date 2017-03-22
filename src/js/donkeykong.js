@@ -6,26 +6,37 @@ class Donkeykong {
     this.turnCount = 0;
   }
 
-
-  moveLeft () {
+  moveLeft (distance) {
+    console.log(distance, 'move left');
     if (this.left > 0) {
-      this.left -= 20;
+      if (distance > 60 && this.left < 240 & this.left > 0) {
+        this.left += 40;
+      } else {
+        this.left -= 20;
+      }
     }
   }
 
-  moveRight () {
+  moveRight (distance) {
+    console.log(distance, 'move right');
     if (this.left < 240) {
-      this.left += 20;
+      if (distance > 60 && this.left < 240 && this.left > 0) {
+        this.left -= 40;
+      } else {
+        this.left += 20;
+      }
     }
   }
 
-  update () {
+  update (playerLoc) {
+    let distance = Math.abs(playerLoc - this.left);
+    //console.log(distance);
     this.turnCount++;
     if (this.turnCount % 20 === 0) {
       if (Math.random() > 0.5) {
-        this.moveLeft();
+        this.moveLeft(distance);
       } else {
-        this.moveRight();
+        this.moveRight(distance);
       }
     }
   }

@@ -18,7 +18,7 @@ class Mario {
   }
 
   moveRight () {
-    if (this.left < 285) {
+    if (this.left < 270) {
       this.left += 10;
       this.state = 'right';
     }

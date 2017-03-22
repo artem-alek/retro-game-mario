@@ -49,7 +49,7 @@ class AppController {
       this.removeBarrel(barrel);
     });
 
-    this.computer.update();
+    this.computer.update(this.player.left);
     this.render();
     this.turnCount++;
   }
