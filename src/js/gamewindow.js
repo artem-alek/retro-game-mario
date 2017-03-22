@@ -8,7 +8,7 @@ class AppController {
     this.barrels = [];
     this.barrelId = 1;
     this.turnCount = 0;
-
+    this.startgame
   }
 
   render () {
@@ -18,6 +18,8 @@ class AppController {
       <div id="${this.computer.id}"></div>
       ${barrelHtml}
       `);
+    $('#donkeykong').css('top', this.computer.top + 'px');
+    $('#player').css('top', this.player.top + 'px');
     $(`.player-${this.player.state}`).css('left', this.player.left +'px');
     $('#donkeykong').css('left', this.computer.left);
 // loop barrels to update css for each one.
@@ -29,7 +31,7 @@ class AppController {
   }
 
   tick () {
-    if (this.turnCount % 100 === 0) {
+    if (this.turnCount % 50 === 0) {
       this.addBarrel();
     }
 
@@ -53,7 +55,7 @@ class AppController {
   }
 
   removeBarrel (barrel) {
-    if (barrel.top >= 250) {
+    if (barrel.top >= 245) {
       this.barrels.splice(0,1);
     }
   }
@@ -66,7 +68,7 @@ class AppController {
   }
 
   start () {
-    setInterval(this.tick.bind(this), 16);
+    this.startgame = setInterval(this.tick.bind(this), 16);
     $('body').keydown((event) => {
       switch (event.which) {
       case 37: this.player.moveLeft();
@@ -92,7 +94,7 @@ class AppController {
 
   endGame () {
     if (this.player.lives === 0) {
-
+      clearInterval(this.startgame);
       console.log('game over');
     }
   }

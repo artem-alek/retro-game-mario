@@ -2,33 +2,13 @@
   box-sizing: border-box;
 }
 
-#player {
-
-}
-
-// #game {
-//   width: 284px;
-//   height: 257px;
-//   border: 1px solid lightgrey;
-//   margin: 0px auto;
-//   position: relative;
-// }
-
-// .game-container {
-//   width: 600px;
-//   height: 700px;
-//   border: 1px solid lightgrey;
-//   margin: 0px auto;
-//   position: relative;
-// }
-
 .player-left {
   transform: scaleX(-1);
   background: url('../images/donkeyKong game sprite.gif') no-repeat -158px -3px;
 	width: 12px;
 	height: 16px;
   position: absolute;
-  top: 238px;
+  //top: 238px;
   //zoom:2;
 }
 
@@ -37,7 +17,7 @@
 	width: 15px;
 	height: 15px;
   position: absolute;
-  top: 238px;
+  //top: 238px;
   //zoom: 2;
 }
 
@@ -46,7 +26,7 @@
 	width: 12px;
 	height: 16px;
   position: absolute;
-  top: 238px;
+  //top: 238px;
   //left: 110px;
   //zoom: 2;
 }
@@ -58,6 +38,7 @@
   position: absolute;
   //zoom:2;
   left: 125px;
+
 }
 
 .barrel {
@@ -132,7 +113,15 @@
   transform: scaleX(-1);
 }
 
+.heart {
+  background: url('imgs/donkeyKong game sprite.gif') no-repeat -207px -269px;
+	width: 13px;
+	height: 11px;
+}
+
 #game {
+  background-image: url('../images/background.png');
+  background-size: contain;
   width: 284px;
   height: 254px;
   //background-color: yellow;

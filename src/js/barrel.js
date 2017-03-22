@@ -12,8 +12,8 @@ class Barrel {
   }
 
   update () {
-    if (this.top <= 250) {
-      this.top += 5;
+    if (this.top <= 245) {
+      this.top += 1.5;
     }
   }
 
