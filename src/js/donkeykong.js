@@ -1,6 +1,3 @@
-import $ from 'jquery';
-import Barrel from './barrel';
-
 class Donkeykong {
   constructor () {
     this.id = 'donkeykong';
@@ -17,7 +14,7 @@ class Donkeykong {
   }
 
   moveRight () {
-    if (this.left < 260) {
+    if (this.left < 240) {
       this.left += 20;
     }
   }

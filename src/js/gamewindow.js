@@ -11,25 +11,6 @@ class AppController {
 
   }
 
-  // checkCollisions()
-  // collide(character1, character2) i.e. a player and a barrel
-
- // OBJECTIVE: Move event handling and intervals
- // into appcontroller to simplify models and make them easier to test
-
-  /*
-
-   Doing rendering based on the AppController...
-
-   This only works to redraw every frame *if*
-   your player and computer and all the barrels
-   can be looped through in appcontroller and know their x and y
-
-  THIS GOING TO RENDER
-   <div id="${this.computer.id}"></div>
-   ${barrelHtml}
- */
-
   render () {
     var barrelHtml = this.renderBarrels();
     $('#game').html(`
@@ -41,22 +22,6 @@ class AppController {
     $('#donkeykong').css('left', this.computer.left);
 // loop barrels to update css for each one.
     this.barrels.forEach((barrel) => barrel.render());
-  }
-
-  addBarrel () {
-    var barrel = new Barrel({id:this.barrelId, left:this.computer.left});
-    this.barrels.push(barrel);
-    this.barrelId++;
-  }
-
-  removeBarrel (barrel) {
-    if (barrel.top >= 345) {
-      this.barrels.splice(0,1);
-    }
-  }
-
-  hit () {
-    this.barrels.splice(0,1);
   }
 
   renderBarrels() {
@@ -81,15 +46,55 @@ class AppController {
     this.turnCount++;
   }
 
+  addBarrel () {
+    var barrel = new Barrel({id:this.barrelId, left:this.computer.left});
+    this.barrels.push(barrel);
+    this.barrelId++;
+  }
+
+  removeBarrel (barrel) {
+    if (barrel.top >= 250) {
+      this.barrels.splice(0,1);
+    }
+  }
+
+  hit () {
+    this.barrels.splice(0,1);
+    this.player.lives -= 1;
+    console.log(this.player.lives);
+    this.endGame();
+  }
 
   start () {
     setInterval(this.tick.bind(this), 16);
     $('body').keydown((event) => {
       switch (event.which) {
-      case 37: this.player.moveLeft(); break;
-      case 39: this.player.moveRight(); break;
+      case 37: this.player.moveLeft();
+        $('.left-arrow').css('opacity', .5);
+        break;
+      case 39: this.player.moveRight();
+        $('.right-arrow').css('opacity', .5);
+        break;
       }
     });
+    $('body').keyup((event) => {
+      switch (event.which) {
+      case 37:
+        $('.left-arrow').css('opacity', 0);
+        break;
+      case 39:
+        $('.right-arrow').css('opacity', 0);
+        break;
+      }
+    });
+    $('.power').css('opacity', 1);
+  }
+
+  endGame () {
+    if (this.player.lives === 0) {
+
+      console.log('game over');
+    }
   }
 }
 

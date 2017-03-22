@@ -12,7 +12,7 @@ class Barrel {
   }
 
   update () {
-    if (this.top <= 345) {
+    if (this.top <= 250) {
       this.top += 5;
     }
   }

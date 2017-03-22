@@ -6,13 +6,13 @@
 
 }
 
-#game {
-  width: 600px;
-  height: 700px;
-  border: 1px solid lightgrey;
-  margin: 0px auto;
-  position: relative;
-}
+// #game {
+//   width: 284px;
+//   height: 257px;
+//   border: 1px solid lightgrey;
+//   margin: 0px auto;
+//   position: relative;
+// }
 
 // .game-container {
 //   width: 600px;
@@ -28,8 +28,8 @@
 	width: 12px;
 	height: 16px;
   position: absolute;
-  top: 332px;
-  zoom:2;
+  top: 238px;
+  //zoom:2;
 }
 
 .player-run {
@@ -37,7 +37,7 @@
 	width: 15px;
 	height: 15px;
   position: absolute;
-  top: 332px;
+  top: 238px;
   //zoom: 2;
 }
 
@@ -46,9 +46,9 @@
 	width: 12px;
 	height: 16px;
   position: absolute;
-  top: 332px;
+  top: 238px;
   //left: 110px;
-  zoom: 2;
+  //zoom: 2;
 }
 
 #donkeykong {
@@ -56,7 +56,7 @@
 	width: 40px;
 	height: 32px;
   position: absolute;
-  zoom:2;
+  //zoom:2;
   left: 125px;
 }
 
@@ -65,7 +65,79 @@
 	width: 15px;
 	height: 10px;
   position: absolute;
-  zoom:2;
+  //zoom:2;
   left: 0px;
   top: 0px;
+}
+
+.game-boy {
+  background-image: url('../images/game_window.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 900px;
+  height: 900px;
+  margin: 0px auto;
+  z-index: 0;
+  position: relative;
+}
+
+.start-game {
+  width: 76px;
+  height: 27px;
+  background-color: white;
+  z-index: 1;
+  position: absolute;
+  left: 430px;
+  top: 715px;
+  transform: skewY(-25deg);
+  border-radius: 12px;
+  opacity: 0;
+}
+
+.power {
+  width: 13px;
+  height: 13px;
+  background-color: #d92708;
+  position: absolute;
+  top: 206px;
+  left: 256px;
+  border-radius: 28px;
+  opacity: 0;
+}
+
+.right-arrow {
+  width: 41px;
+  height: 51px;
+  background: white;
+  position: absolute;
+  z-index: 1;
+  left: 320px;
+  top: 575px;
+  border-bottom-right-radius: 7px;
+  border-top-right-radius: 9px;
+  opacity: 0;
+}
+
+.left-arrow {
+  width: 42px;
+  height: 52px;
+  background: white;
+  position: absolute;
+  z-index: 1;
+  left: 227px;
+  top: 574px;
+  border-bottom-right-radius: 7px;
+  border-top-right-radius: 4px;
+  opacity: 0;
+  transform: scaleX(-1);
+}
+
+#game {
+  width: 284px;
+  height: 254px;
+  //background-color: yellow;
+  z-index: 1;
+  position: absolute;
+  left: 307px;
+  top: 125px;
 }
