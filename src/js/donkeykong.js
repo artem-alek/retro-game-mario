@@ -1,7 +1,7 @@
 class Donkeykong {
   constructor () {
     this.id = 'donkeykong';
-    this.left = 200;
+    this.left = 0;
     this.top = 15;
     this.turnCount = 0;
   }
@@ -10,7 +10,7 @@ class Donkeykong {
     console.log(distance, 'move left');
     if (this.left > 0) {
       if (distance > 60 && this.left < 240 & this.left > 0) {
-        this.left += 40;
+        this.left -= 60;
       } else {
         this.left -= 20;
       }
@@ -20,8 +20,8 @@ class Donkeykong {
   moveRight (distance) {
     console.log(distance, 'move right');
     if (this.left < 240) {
-      if (distance > 60 && this.left < 240 && this.left > 0) {
-        this.left -= 40;
+      if (distance < -60 && distance < 0 && this.left < 240 && this.left > 0) {
+        this.left += 60;
       } else {
         this.left += 20;
       }
@@ -29,8 +29,8 @@ class Donkeykong {
   }
 
   update (playerLoc) {
-    let distance = Math.abs(playerLoc - this.left);
-    //console.log(distance);
+    let distance = this.left - playerLoc;
+    console.log(distance);
     this.turnCount++;
     if (this.turnCount % 20 === 0) {
       if (Math.random() > 0.5) {
