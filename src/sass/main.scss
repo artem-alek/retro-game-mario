@@ -129,4 +129,34 @@
   position: absolute;
   left: 307px;
   top: 125px;
+  opacity: 1;
+}
+
+.black-screen {
+  width: 284px;
+  height: 254px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 115px;
+  z-index: 2;
+  position: absolute;
+  left: 307px;
+  top: 125px;
+}
+
+.welcome {
+  background-image: url('https://m.popkey.co/9c4b0f/L9566.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #F7F7F7;
+  width: 284px;
+  height: 254px;
+  //background-color: yellow;
+  z-index: 2;
+  position: absolute;
+  left: 307px;
+  top: 125px;
 }

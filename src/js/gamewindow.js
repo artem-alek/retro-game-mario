@@ -68,7 +68,12 @@ class AppController {
   }
 
   start () {
-    this.startgame = setInterval(this.tick.bind(this), 16);
+    $('.black-screen').css('opacity', 0);
+    $('#welcome-screen').addClass('welcome');
+    setTimeout( () => {
+      this.startgame = setInterval(this.tick.bind(this), 16);
+      $('#welcome-screen').removeClass('welcome');
+    }, 3600);
     $('body').keydown((event) => {
       switch (event.which) {
       case 37: this.player.moveLeft();
