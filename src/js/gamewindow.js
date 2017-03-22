@@ -18,7 +18,7 @@ class AppController {
     $('#game').html(`
       <div id="${this.player.id}" class="player-${this.player.state}"></div>
       <div id="${this.computer.id}"></div>
-      <ul id="hearts">${livesHtml}</ul>
+      <ul id="hearts"><li class="text">LIVES</li>${livesHtml}</ul>
       ${barrelHtml}
       `);
     $('#donkeykong').css('top', this.computer.top + 'px');
