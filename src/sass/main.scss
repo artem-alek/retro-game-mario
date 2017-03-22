@@ -115,9 +115,16 @@
 }
 
 .heart {
-  background: url('imgs/donkeyKong game sprite.gif') no-repeat -207px -269px;
+  background: url('../images/donkeyKong game sprite.gif') no-repeat -207px -269px;
 	width: 13px;
 	height: 11px;
+  z-index: 2;
+  display: inline-block;
+}
+
+#hearts {
+  margin: 3px 0px 0px 0px;
+  padding-left: 10px;
 }
 
 #game {
