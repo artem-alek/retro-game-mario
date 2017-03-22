@@ -3,6 +3,10 @@
   font-family: 'Orbitron', sans-serif;
 }
 
+body {
+  background-color: #1d1f21;
+}
+
 .player-left {
   transform: scaleX(-1);
   background: url('../images/donkeyKong game sprite.gif') no-repeat -158px -3px;
