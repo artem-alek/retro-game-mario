@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 class Mario {
   constructor (options) {
     options = options || {};
@@ -13,14 +15,28 @@ class Mario {
   moveLeft () {
     if (this.left > 0) {
       this.left -= 10;
-      this.state = 'left';
+      this.runLeft();
     }
+  }
+
+  runRight () {
+    this.runRightState();
+    setTimeout(() => {
+      this.standRight();
+    }, 200);
+  }
+
+  runLeft () {
+    this.runLeftState();
+    setTimeout(() => {
+      this.standLeft();
+    }, 200);
   }
 
   moveRight () {
     if (this.left < 270) {
       this.left += 10;
-      this.state = 'right';
+      this.runRight();
     }
   }
 
@@ -29,6 +45,21 @@ class Mario {
     this.livesCounter -= 1;
   }
 
+  runRightState () {
+    this.state = 'runRight';
+  }
+
+  runLeftState () {
+    this.state = 'runLeft';
+  }
+
+  standLeft () {
+    this.state = 'left';
+  }
+
+  standRight () {
+    this.state = 'right';
+  }
 }
 
 export default Mario;

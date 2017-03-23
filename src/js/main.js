@@ -12,5 +12,5 @@ var player = new Mario({
 var computer = new Donkeykong();
 var marioGame = new AppController({player:player, computer:computer });
 $('.start-game').click(marioGame.start.bind(marioGame));
-
+$('.end-game').click(() => location.reload());
 export default marioGame;

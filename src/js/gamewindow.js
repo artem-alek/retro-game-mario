@@ -13,8 +13,7 @@ class AppController {
 
   render () {
     var barrelHtml = this.renderBarrels();
-    let livesHtml = this.renderLives();
-    //console.log(livesHtml);
+    var livesHtml = this.renderLives();
     $('#game').html(`
       <div id="${this.player.id}" class="player-${this.player.state}"></div>
       <div id="${this.computer.id}"></div>
@@ -22,18 +21,25 @@ class AppController {
       ${barrelHtml}
       `);
     $('#donkeykong').css('top', this.computer.top + 'px');
-    $('#player').css('top', this.player.top + 'px');
+    $(`#${this.player.id}`).css('top', this.player.top + 'px');
     $(`.player-${this.player.state}`).css('left', this.player.left +'px');
     $('#donkeykong').css('left', this.computer.left);
     this.barrels.forEach((barrel) => barrel.render());
   }
 
-  renderBarrels() {
+
+  renderBarrels () {
     return this.barrels.map((barrel) => `<div id="${barrel.id}" class="barrel"></div>`).join('');
   }
 
-  renderLives() {
+  renderLives () {
     return this.player.lives.map((lives) => `<li id="heart-${lives}" class="heart"></li>`).join('');
+  }
+
+  renderEndGame () {
+    return `
+      <div class="gameover">Game Over<br>Click Select To Restart</div>
+    `;
   }
 
   tick () {
@@ -109,7 +115,9 @@ class AppController {
   endGame () {
     if (this.player.livesCounter === 0) {
       clearInterval(this.startgame);
-      console.log('game over');
+      var gameOverHtml = this.renderEndGame;
+      setTimeout(() => $('#game').html(gameOverHtml),500);
+
     }
   }
 }
